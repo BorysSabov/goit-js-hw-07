@@ -18,18 +18,18 @@ const createGalleryEl = galleryItems.map( item =>
     .join('');
     
     addGalleryItems.innerHTML = createGalleryEl;
-    // addGalleryItems.addEventListener('click', holdGalleryClick);
+    
 
-    function onOpenModalImg(evt) {
-  if (evt.target.nodeName !== 'IMG') {
+    function onOpenModalImg() {
+  if (event.target.nodeName !== 'IMG') {
     return;
   }
-  let valueImg = evt.target.closest('.gallery__image');
+  let valueImg = event.target.closest('.gallery__image');
         valueImg = basicLightbox.create(`
     <img
       src="${valueImg.dataset.source}"
     />
-    `);
+    `)
         valueImg.show();
 }
 
