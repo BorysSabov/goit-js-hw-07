@@ -1,10 +1,12 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 // console.log(galleryItems);
-const addGalleryItems = document.querySelector('.gallery');
+const addGalleryItems = document.querySelector(".gallery");
 
-const createGalleryEl = galleryItems.map( item => 
-    `<div class="gallery__item">
+const createGalleryEl = galleryItems
+  .map(
+    (item) =>
+      `<div class="gallery__item">
     <a class="gallery__link" href="${item.original}">
     <img
     class="gallery__image"
@@ -14,49 +16,26 @@ const createGalleryEl = galleryItems.map( item =>
     />
     </a>
     </div>`
-    )
-    .join('');
-    
-    addGalleryItems.innerHTML = createGalleryEl;
-    
+  )
+  .join("");
 
-    function onOpenModalImg() {
-  if (event.target.nodeName !== 'IMG') {
+addGalleryItems.innerHTML = createGalleryEl;
+
+function onOpenModalImg() {
+  if (event.target.nodeName !== "IMG") {
     return;
   }
-  let valueImg = event.target.closest('.gallery__image');
-        valueImg = basicLightbox.create(`
+  let valueImg = event.target.closest(".gallery__image");
+  valueImg = basicLightbox.create(`
     <img
       src="${valueImg.dataset.source}"
     />
-    `)
-        valueImg.show();
+    `);
+  valueImg.show();
 }
 
-addGalleryItems.addEventListener('click', (event) => {
-    event.preventDefault();
-    onOpenModalImg();
-    console.log(event);
+addGalleryItems.addEventListener("click", (event) => {
+  event.preventDefault();
+  onOpenModalImg();
+  console.log(event);
 });
-
-
-// function onCloseModalImg(event) {
-
-// }
-
-
-// function holdGalleryClick(evt) {
-//     evt.preventDefault();
-//     const isGalleryImgBigEl = evt.target.clasList.contains('.gallery__image');
-//     if (!isGalleryImgBigEl) {
-//         return;
-//     }
-//     const isGalleryImgValue = evt.target;
-//     let imgValue = isGalleryImgValue.closest('.gallery__image');
-//     imgValue = basicLightbox.create(`<img width = "1280" height = "800" src = ${imgValue.dataset.source}>`).show()
-// };
-
-
-
-
-

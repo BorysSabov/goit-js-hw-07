@@ -22,21 +22,20 @@ addGalleryPic.innerHTML = createGalleryEl;
 let gallery = new SimpleLightbox(".gallery a", {
   captions: true,
   captionDelay: 250,
-  // captionType: "text",
+  captionsData: "alt",
 });
 console.log(gallery);
-// gallery.on("open.simplelightbox", function () {
-//   console.log("Lightbox opened");
-// });
-// gallery.on("close.simplelightbox", function () {
-//   console.log("Lightbox closed");
-// });
+gallery.on("open.simplelightbox", function () {
+  console.log("Lightbox opened");
+});
+gallery.on("close.simplelightbox", function () {
+  console.log("Lightbox closed");
+});
 
-// gallery.on("next.simplelightbox", function () {
-//   console.log("Next image");
-// });
+gallery.on("next.simplelightbox", function () {
+  console.log("Next image");
+});
 
-// gallery.on("prev.simplelightbox", function () {
-//   console.log("Previous image");
-// });
-// };
+gallery.on("prev.simplelightbox", function () {
+  console.log("Previous image");
+});
